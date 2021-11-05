@@ -35,7 +35,7 @@ class Group
     private $name;
 
     /**
-     * @ORM\Column(type="datetime", columnDefinition="created_at")
+     * @ORM\Column(type="datetime", unique=false)
      * @Groups({"read", "write"})
      */
     private $createdAt;

@@ -16,14 +16,12 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * @ApiResource(
  *     routePrefix="/v1",
- *     collectionOperations={"post"={"path"="/users/"}},
- *     itemOperations={
- *          "get",
- *          "delete",
+ *     collectionOperations={
+ *          "post"={"path"="/users/"},
  *          "post_login"={
  *              "method"="POST",
  *              "path"="/login",
- *              "controller"="UserConcroller::class",
+ *              "controller"="UserController::class",
  *              "openapi_context"={
  *                  "requestBody": {
  *                     "content": {
@@ -42,6 +40,10 @@ use Symfony\Component\Validator\Constraints as Assert;
  *                  "description"="Login user and get jwt token",
  *              },
  *          },
+ *     },
+ *     itemOperations={
+ *          "get",
+ *          "delete",
  *          "post_attach"={
  *              "method"="POST",
  *              "path"="/users/{id}/attach-group",
@@ -121,7 +123,7 @@ class User implements UserInterface
     private $password;
 
     /**
-     * @ORM\Column(type="string", length=255, columnDefinition="full_name")
+     * @ORM\Column(type="string", length=255, unique=false)
      * @Assert\NotBlank()
      * @Groups({"read", "write"})
      */

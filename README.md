@@ -10,13 +10,13 @@ User management API, build with Symfony v4.4
 ![GitHub](https://img.shields.io/github/license/demartis/symfony5-rest-api)
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fdemartis%2Fsymfony5-rest-api.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fdemartis%2Fsymfony5-rest-api?ref=badge_shield)
 
-### For API testing go to [/api](http://localhost:8000/api)
+### For API testing and information go to [/api](http://localhost:8000/api)
 ## Installation:
 
 ```bash
-composer install
 cp .env.example .env
-php bin/console make:migration
+composer install
+php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
 symfony server:start
